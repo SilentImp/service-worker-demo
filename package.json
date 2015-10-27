@@ -1,0 +1,23 @@
+{
+  "name": "service-worker-demo",
+  "version": "1.0.0",
+  "description": "Service Worker demo",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilentImp/service-worker-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SilentImp/service-worker-demo/issues"
+  },
+  "homepage": "https://github.com/SilentImp/service-worker-demo#readme",
+  "dependencies": {
+    "babelify": "^6.4.0",
+    "watchify": "^3.5.0"
+  }
+}

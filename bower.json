@@ -1,0 +1,22 @@
+{
+  "name": "service-worker-demo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SilentImp/service-worker-demo",
+  "authors": [
+    "Anton Nemtsev <thesilentimp@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cache-polyfill": "https://github.com/coonsta/cache-polyfill"
+  }
+}
