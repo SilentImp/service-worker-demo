@@ -98,6 +98,7 @@
                     return;
                 }
                 console.log('text:', xhr.responseText );
+                alert(xhr.responseText);
             };
             xhr.send();
         }
