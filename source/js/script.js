@@ -22,7 +22,14 @@
             // После загрузки DOM назначим обработчик кнопке отправки сообщений
             this.ifDOMLoadedRun(()=>{
                 document.querySelector('.send_request').addEventListener('click', this.sendDummyRequest.bind(this));
+
+                document.querySelector('.refresh').addEventListener('click', this.refreshPage.bind(this));
+
             });
+        }
+
+        refreshPage () {
+            document.location.reload(true);
         }
 
         ifDOMLoadedRun (callback) {

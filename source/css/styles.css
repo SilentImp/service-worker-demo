@@ -68,8 +68,8 @@ figcaption {
 
 .clear_cache {
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	bottom: 20px;
+	left: 20px;
 	box-shadow: none;
 	outline: none;
 	background: #c00;

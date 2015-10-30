@@ -33,10 +33,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             // После загрузки DOM назначим обработчик кнопке отправки сообщений
             this.ifDOMLoadedRun(function () {
                 document.querySelector('.send_request').addEventListener('click', _this.sendDummyRequest.bind(_this));
+
+                document.querySelector('.refresh').addEventListener('click', _this.refreshPage.bind(_this));
             });
         }
 
         _createClass(ServiceWorkerController, [{
+            key: 'refreshPage',
+            value: function refreshPage() {
+                document.location.reload(true);
+            }
+        }, {
             key: 'ifDOMLoadedRun',
             value: function ifDOMLoadedRun(callback) {
                 var ready = new Promise(function (resolve, reject) {

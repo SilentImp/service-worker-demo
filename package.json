@@ -4,13 +4,15 @@
   "description": "Service Worker demo",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rebuild": "browserify ./source/js/script.js -t babelify -o ./source/js/bundle.js",
+    "watch": "watchify ./source/js/script.js -t babelify -o ./source/js/bundle.js",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SilentImp/service-worker-demo.git"
   },
-  "author": "",
+  "author": "Anton Nemtsev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SilentImp/service-worker-demo/issues"
@@ -18,6 +20,8 @@
   "homepage": "https://github.com/SilentImp/service-worker-demo#readme",
   "dependencies": {
     "babelify": "^6.4.0",
+    "gulp": "^3.9.0",
+    "gulp-gh-pages": "^0.5.4",
     "watchify": "^3.5.0"
   }
 }

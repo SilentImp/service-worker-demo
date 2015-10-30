@@ -6,7 +6,7 @@ this.addEventListener('install', function(event) {
 
     caches.open(cache_name).then(function(cache) {
         return cache.addAll([
-            'http://localhost:8080/', 'http://localhost:8080/index.html', 'http://localhost:8080/css/styles.css', 'http://localhost:8080/images/photo.jpg'
+            'http://localhost:8085/', 'http://localhost:8085/index.html', 'http://localhost:8085/css/styles.css', 'http://localhost:8085/images/photo.jpg'
         ]);
         console.log('Воркер инсталирован, данные кэшированы');
 

@@ -1,5 +1,32 @@
 # Пример использовани Service Worker
 
+# Установка
+
+// Установим browserify
+npm install -g browserify
+
+// Устанавливаем сервер
+npm install -g http-server
+
+// Клонируем репозиторий
+git clone git@github.com:SilentImp/service-worker-demo.git
+
+// Заходим в директорий
+cd service-worker-demo
+
+// Устанавливаем зависимости
+npm install
+bower install
+
+// Собираем скрипты
+npm run rebuild
+
+// Запускаем сервер
+http-server ./source -p 8085
+
+// Открываем страницу
+open https://localhost:8085
+
 # Спецификация
 
 [Service Workers Nightly](https://slightlyoff.github.io/ServiceWorker/spec/service_worker/)
@@ -7,9 +34,7 @@
 
 # Поддержка в браузерах
 
-* Chrome >43
-* Opera >32
-* FireFox >44
+Chrome >43, Opera >32, FireFox >44
 
 * [Is Service Worker ready?](https://jakearchibald.github.io/isserviceworkerready/)
 * [Can I Use Service Worker](http://caniuse.com/#feat=serviceworkers)
@@ -22,8 +47,8 @@
 
 # Отладка в Chrome
 
-[chrome://serviceworker-internals/](chrome://serviceworker-internals/)
-[chrome://inspect/#service-workers](chrome://inspect/#service-workers)
+* [chrome://serviceworker-internals/](chrome://serviceworker-internals/)
+* [chrome://inspect/#service-workers](chrome://inspect/#service-workers)
 
 
 # Доклады
