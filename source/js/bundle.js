@@ -25,8 +25,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _classCallCheck(this, ServiceWorkerController);
 
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service_worker.js?42', {
-                    scope: '/'
+                navigator.serviceWorker.register('service_worker.js', {
+                    scope: '/service-worker-demo/'
                 }).then(this.success.bind(this))['catch'](this.error.bind(this));
             }
 

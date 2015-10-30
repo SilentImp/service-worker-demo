@@ -109,3 +109,25 @@ figcaption {
 	.send_request:hover {
 		background: #09c;
 		}
+
+.refresh {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	box-shadow: none;
+	outline: none;
+	background: #b0e;
+	color: #fff;
+	border-style: none;
+	font-size: 14px;
+	line-height: 40px;
+	padding: 0 20px;
+	width: auto;
+	height: 40px;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: -20px 0 0;
+	cursor: pointer;
+	}
+	.refresh:hover {
+		background: #90c;
+		}
