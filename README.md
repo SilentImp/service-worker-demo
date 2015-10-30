@@ -1,31 +1,6 @@
 # Пример использовани Service Worker
 
-# Установка
-
-// Установим browserify
-npm install -g browserify
-
-// Устанавливаем сервер
-npm install -g http-server
-
-// Клонируем репозиторий
-git clone git@github.com:SilentImp/service-worker-demo.git
-
-// Заходим в директорий
-cd service-worker-demo
-
-// Устанавливаем зависимости
-npm install
-bower install
-
-// Собираем скрипты
-npm run rebuild
-
-// Запускаем сервер
-http-server ./source -p 8085
-
-// Открываем страницу
-open https://localhost:8085
+Пример доступен по адресу https://silentimp.github.io/service-worker-demo/
 
 # Спецификация
 

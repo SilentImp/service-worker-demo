@@ -6,7 +6,7 @@ this.addEventListener('install', function(event) {
 
     caches.open(cache_name).then(function(cache) {
         return cache.addAll([
-            'http://silentimp.github.io/service-worker-demo/', 'http://silentimp.github.io/service-worker-demo/index.html', 'http://silentimp.github.io/service-worker-demo/css/styles.css', 'http://silentimp.github.io/service-worker-demo/images/photo.jpg'
+            'https://silentimp.github.io/service-worker-demo/', 'https://silentimp.github.io/service-worker-demo/index.html', 'https://silentimp.github.io/service-worker-demo/css/styles.css', 'https://silentimp.github.io/service-worker-demo/images/photo.jpg'
         ]);
         console.log('Воркер инсталирован, данные кэшированы');
 
