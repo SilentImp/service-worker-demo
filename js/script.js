@@ -14,7 +14,7 @@
         constructor () {
 
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service_worker.js?x12', {
+                navigator.serviceWorker.register('service_worker.js?x1', {
                     scope: '/service-worker-demo/'
                 }).then(this.success.bind(this)).catch(this.error.bind(this));
             }

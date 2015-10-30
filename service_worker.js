@@ -4,18 +4,20 @@ var cache_name = 'static_assets';
 // Вызывается при первом вызове воркера страницей
 this.addEventListener('install', function(event) {
 
-    event.waitUntil(caches.open(cache_name).then(function(cache) {
+    event.waitUntil(
+
+        caches.open(cache_name).then(function(cache) {
             return cache.addAll([
-                'https://silentimp.github.io/service-worker-demo/', 'https://silentimp.github.io/service-worker-demo/index.html', 'https://silentimp.github.io/service-worker-demo/css/styles.css', 'https://silentimp.github.io/service-worker-demo/images/photo.jpg'
+                'https://silentimp.github.io/service-worker-demo/',
+                'https://silentimp.github.io/service-worker-demo/index.html',
+                'https://silentimp.github.io/service-worker-demo/css/styles.css',
+                'https://silentimp.github.io/service-worker-demo/images/photo.jpg'
             ]);
             console.log('Воркер инсталирован, данные кэшированы');
 
         }).catch(function(err) {
             console.log('Не удалось кешировать данные', err);
-
-        });
-    );
-
+        }));
 });
 
 
