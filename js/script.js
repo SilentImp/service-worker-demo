@@ -61,9 +61,11 @@
                 console.log('Сервис воркер инсталируестся');
             } else if (registration.waiting) {
                 console.log('Сервис воркер инсталирован');
+                console.log('Назначаем события очистке кеша после инстала');
+                this.ifDOMLoadedRun(this.initEvents.bind(this));
             } else if (registration.active) {
                 console.log('Сервис воркер активен');
-                console.log('Назначаем события очистке кеша');
+                console.log('Назначаем события очистке кеша после активации');
                 this.ifDOMLoadedRun(this.initEvents.bind(this));
             }
         }
