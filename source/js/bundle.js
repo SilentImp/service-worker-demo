@@ -122,6 +122,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         return;
                     }
                     console.log('text:', xhr.responseText);
+                    alert(xhr.responseText);
                 };
                 xhr.send();
             }
