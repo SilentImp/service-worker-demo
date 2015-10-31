@@ -21,10 +21,12 @@
 
             // После загрузки DOM назначим обработчик кнопке отправки сообщений
             this.ifDOMLoadedRun(()=>{
+                // Отправка сообщений
+                console.log('Назначаем события отправки запроса и рефреша');
+
                 document.querySelector('.send_request').addEventListener('click', this.sendDummyRequest.bind(this));
 
                 document.querySelector('.refresh').addEventListener('click', this.refreshPage.bind(this));
-
             });
         }
 
@@ -61,7 +63,8 @@
                 console.log('Сервис воркер инсталирован');
             } else if (registration.active) {
                 console.log('Сервис воркер активен');
-                this.ifDOMLoadedRun(this.initEvents());
+                console.log('Назначаем события очистке кеша');
+                this.ifDOMLoadedRun(this.initEvents.bind(this));
             }
         }
 
@@ -70,6 +73,7 @@
          */
         initEvents () {
             // Отправка сообщений
+            console.log('Назначаем события');
             document.querySelector('.clear_cache').addEventListener('click', this.sendClearMessage.bind(this));
         }
 
@@ -77,6 +81,7 @@
          * Отправляем воркеру сообщение о том, что нужно очистить кэш
          */
         sendClearMessage () {
+            console.log('Отправляем сообщение');
             let message = {
                 'command': 'flush'
             };

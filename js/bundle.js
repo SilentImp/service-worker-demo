@@ -32,6 +32,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             // После загрузки DOM назначим обработчик кнопке отправки сообщений
             this.ifDOMLoadedRun(function () {
+                // Отправка сообщений
+                console.log('Назначаем события отправки запроса и рефреша');
+
                 document.querySelector('.send_request').addEventListener('click', _this.sendDummyRequest.bind(_this));
 
                 document.querySelector('.refresh').addEventListener('click', _this.refreshPage.bind(_this));
@@ -80,7 +83,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     console.log('Сервис воркер инсталирован');
                 } else if (registration.active) {
                     console.log('Сервис воркер активен');
-                    this.ifDOMLoadedRun(this.initEvents());
+                    console.log('Назначаем события очистке кеша');
+                    this.ifDOMLoadedRun(this.initEvents.bind(this));
                 }
             }
 
@@ -91,6 +95,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             key: 'initEvents',
             value: function initEvents() {
                 // Отправка сообщений
+                console.log('Назначаем события');
                 document.querySelector('.clear_cache').addEventListener('click', this.sendClearMessage.bind(this));
             }
 
@@ -100,6 +105,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: 'sendClearMessage',
             value: function sendClearMessage() {
+                console.log('Отправляем сообщение');
                 var message = {
                     'command': 'flush'
                 };
