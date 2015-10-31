@@ -1,26 +1,25 @@
 // События ServiceWorkerGlobalScope
-var cache_name = 'static_assets_v1';
+var cache_name = 'static_assets_vx';
 
 // Вызывается при первом вызове воркера страницей
 this.addEventListener('install', function(event) {
-    event.waitUntil(
-        caches.open(cache_name).then(function(cache) {
-          return cache.addAll([
-            'https://silentimp.github.io/service-worker-demo/',
-            'https://silentimp.github.io/service-worker-demo/index.html',
-            'https://silentimp.github.io/service-worker-demo/css/styles.css',
-            'https://silentimp.github.io/service-worker-demo/images/photo.jpg'
-            ]);
-            console.log('Воркер инсталирован, данные кэшированы');
-        }).catch(function(err) {
-            console.log('Не удалось кешировать данные', err);
-        })
-    );
+
+    caches.open(cache_name).then(function(cache) {
+        return cache.addAll([
+            'https://silentimp.github.io/service-worker-demo/', 'https://silentimp.github.io/service-worker-demo/index.html', 'https://silentimp.github.io/service-worker-demo/css/styles.css', 'https://silentimp.github.io/service-worker-demo/images/photo.jpg'
+        ]);
+        console.log('Воркер инсталирован, данные кэшированы');
+
+    }).catch(function(err) {
+        console.log('Не удалось кешировать данные', err);
+
+    });
+
 });
 
 
 this.addEventListener('activate', function(event) {
-    console.log('Воркер активирован', arguments);
+    console.log('Активирован', arguments);
 });
 
 
@@ -52,27 +51,27 @@ this.addEventListener('fetch', function(event) {
 
     // Проверяем нет ли запроса в кэш
     event.respondWith(
-        caches.match(event.request).then(function(response) {
-            if (response) {
-                return response;
-            } else {
-                var request_clone = event.request.clone();
-                return fetch(request_clone).then(function (response) {
-                    var answer_clone = response.clone();
+        caches.open(cache_name).then(function(cache) {
 
-                    caches.open(cache_name).then(function(cache) {
-                        cache.put(event.request, answer_clone);
-                        console.log('Положили в кэш');
-                    });
+            return cache.match(event.request).then(function(response) {
 
-                    console.log('Отдали ответ');
-                    return responce;
-                }).catch(function (error) {
-                    console.error('Запрос провалился: ', error);
-                });
-            }
-        }).catch(function(error){
-            console.error('Ошибка обращения в кэш: ', error);
+                if (response) {
+                    console.log('Запрос был найден в кэш:', response);
+                    return response;
+                } else {
+                    console.log('Запрос не был найден в кэш');
+                    cache.add(decodeURIComponent(event.request.url));
+                    return fetch(event.request);
+                }
+
+            }).catch(function(error) {
+                console.error('Ошибка обращения в кэш:', error);
+                throw error;
+            });
+
+        }).catch(function(error) {
+            console.error('Ошибка открытия кэша:', error);
+            throw error;
         })
     );
 });
