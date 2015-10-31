@@ -25,7 +25,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _classCallCheck(this, ServiceWorkerController);
 
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service_worker.js', {
+                navigator.serviceWorker.register('service_worker.js?v1', {
                     scope: '/service-worker-demo/'
                 }).then(this.success.bind(this))['catch'](this.error.bind(this));
             }
@@ -38,6 +38,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 document.querySelector('.send_request').addEventListener('click', _this.sendDummyRequest.bind(_this));
 
                 document.querySelector('.refresh').addEventListener('click', _this.refreshPage.bind(_this));
+
+                document.querySelector('.clear_cache').addEventListener('click', _this.sendClearMessage.bind(_this));
             });
         }
 
@@ -83,20 +85,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     console.log('Сервис воркер инсталирован');
                 } else if (registration.active) {
                     console.log('Сервис воркер активен');
-                    console.log('Назначаем события очистке кеша');
-                    this.ifDOMLoadedRun(this.initEvents.bind(this));
                 }
-            }
-
-            /**
-             * Назначаем события, которые позволят работать с воркером
-             */
-        }, {
-            key: 'initEvents',
-            value: function initEvents() {
-                // Отправка сообщений
-                console.log('Назначаем события');
-                document.querySelector('.clear_cache').addEventListener('click', this.sendClearMessage.bind(this));
             }
 
             /**

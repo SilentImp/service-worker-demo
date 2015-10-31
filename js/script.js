@@ -14,7 +14,7 @@
         constructor () {
 
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service_worker.js', {
+                navigator.serviceWorker.register('service_worker.js?v1', {
                     scope: '/service-worker-demo/'
                 }).then(this.success.bind(this)).catch(this.error.bind(this));
             }
@@ -27,6 +27,8 @@
                 document.querySelector('.send_request').addEventListener('click', this.sendDummyRequest.bind(this));
 
                 document.querySelector('.refresh').addEventListener('click', this.refreshPage.bind(this));
+
+                document.querySelector('.clear_cache').addEventListener('click', this.sendClearMessage.bind(this));
             });
         }
 
@@ -61,22 +63,9 @@
                 console.log('Сервис воркер инсталируестся');
             } else if (registration.waiting) {
                 console.log('Сервис воркер инсталирован');
-                console.log('Назначаем события очистке кеша после инстала');
-                this.ifDOMLoadedRun(this.initEvents.bind(this));
             } else if (registration.active) {
                 console.log('Сервис воркер активен');
-                console.log('Назначаем события очистке кеша после активации');
-                this.ifDOMLoadedRun(this.initEvents.bind(this));
             }
-        }
-
-        /**
-         * Назначаем события, которые позволят работать с воркером
-         */
-        initEvents () {
-            // Отправка сообщений
-            console.log('Назначаем события');
-            document.querySelector('.clear_cache').addEventListener('click', this.sendClearMessage.bind(this));
         }
 
         /**
