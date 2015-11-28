@@ -1,5 +1,5 @@
 // События ServiceWorkerGlobalScope
-var cache_name = 'static_assets_vy';
+var cache_name = 'static_assets_vx';
 
 // Вызывается при первом вызове воркера страницей
 this.addEventListener('install', function(event) {

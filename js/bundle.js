@@ -25,21 +25,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _classCallCheck(this, ServiceWorkerController);
 
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service_worker.js?v1', {
+                navigator.serviceWorker.register('service_worker.js', {
                     scope: '/service-worker-demo/'
                 }).then(this.success.bind(this))['catch'](this.error.bind(this));
             }
 
             // После загрузки DOM назначим обработчик кнопке отправки сообщений
             this.ifDOMLoadedRun(function () {
-                // Отправка сообщений
-                console.log('Назначаем события отправки запроса и рефреша');
-
                 document.querySelector('.send_request').addEventListener('click', _this.sendDummyRequest.bind(_this));
 
                 document.querySelector('.refresh').addEventListener('click', _this.refreshPage.bind(_this));
-
-                document.querySelector('.clear_cache').addEventListener('click', _this.sendClearMessage.bind(_this));
             });
         }
 
@@ -85,7 +80,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     console.log('Сервис воркер инсталирован');
                 } else if (registration.active) {
                     console.log('Сервис воркер активен');
+                    this.ifDOMLoadedRun(this.initEvents());
                 }
+            }
+
+            /**
+             * Назначаем события, которые позволят работать с воркером
+             */
+        }, {
+            key: 'initEvents',
+            value: function initEvents() {
+                // Отправка сообщений
+                document.querySelector('.clear_cache').addEventListener('click', this.sendClearMessage.bind(this));
             }
 
             /**
@@ -94,7 +100,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: 'sendClearMessage',
             value: function sendClearMessage() {
-                console.log('Отправляем сообщение');
                 var message = {
                     'command': 'flush'
                 };
