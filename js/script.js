@@ -77,6 +77,7 @@
          * Отправляем воркеру сообщение о том, что нужно очистить кэш
          */
         sendClearMessage () {
+            console.log('отправляем сообщение');
             let message = {
                 'command': 'flush'
             };

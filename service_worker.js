@@ -1,5 +1,5 @@
 // События ServiceWorkerGlobalScope
-var cache_name = 'static_assets_vx';
+var cache_name = 'static_assets';
 
 // Вызывается при первом вызове воркера страницей
 this.addEventListener('install', function(event) {
@@ -79,6 +79,7 @@ this.addEventListener('fetch', function(event) {
 
 // Мы получили сообщение от страницы
 this.addEventListener('message', function(event) {
+    console.log('message');
     switch (event.data.command) {
         case 'flush':
             console.log('Cбрасываем кэш');
