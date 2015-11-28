@@ -33,7 +33,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             // После загрузки DOM назначим обработчик кнопке отправки сообщений
             this.ifDOMLoadedRun(function () {
                 document.querySelector('.send_request').addEventListener('click', _this.sendDummyRequest.bind(_this));
-
+                document.querySelector('.clear_cache').addEventListener('click', _this.sendClearMessage.bind(_this));
                 document.querySelector('.refresh').addEventListener('click', _this.refreshPage.bind(_this));
             });
         }
