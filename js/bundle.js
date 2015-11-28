@@ -100,6 +100,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: 'sendClearMessage',
             value: function sendClearMessage() {
+                console.log('отправляем сообщение');
                 var message = {
                     'command': 'flush'
                 };
