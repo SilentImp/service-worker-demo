@@ -11,7 +11,7 @@ this.addEventListener('install', function(event) {
         console.log('Воркер инсталирован, данные кэшированы');
 
     }).catch(function(err) {
-        console.log('Не удалось кешировать данные', err);
+        console.error('Не удалось кешировать данные', err);
 
     });
 
